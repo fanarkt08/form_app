@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Liste des cadeaux</title>
-</head>
-<body>
-    <h1>Liste des cadeaux</h1>
+@extends('layouts.app')
 
-    <a href="{{ route('gifts.create') }}">Ajouter un cadeau</a>
+@section('title', 'Liste des cadeaux')
+
+@section('content')
+    <h1>Liste des cadeaux</h1>
 
     @if ($gifts->isEmpty())
         <p>Aucun cadeau pour le moment.</p>
@@ -41,5 +37,4 @@
             </tbody>
         </table>
     @endif
-</body>
-</html>
+@endsection

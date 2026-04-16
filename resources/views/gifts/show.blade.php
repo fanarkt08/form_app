@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ $gift->name }}</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', $gift->name)
+
+@section('content')
     <h1>{{ $gift->name }}</h1>
 
     <p><strong>Prix :</strong> {{ number_format($gift->price, 2) }} €</p>
@@ -21,5 +19,4 @@
     <a href="{{ route('gifts.edit', $gift) }}">Modifier</a>
     &nbsp;|&nbsp;
     <a href="{{ route('gifts.index') }}">Retour à la liste</a>
-</body>
-</html>
+@endsection
