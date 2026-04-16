@@ -31,7 +31,7 @@ class GiftController extends Controller
         $gift = Gift::create($request->only(['name', 'url', 'details', 'price']));
 
         Mail::raw("Le cadeau {$gift->name} a bien été ajouté ({$gift->price}€)", function ($message) {
-            $message->to('test@example.com')
+            $message->to('fanarkt08@example.com')
                     ->subject('Nouveau cadeau ajouté');
         });
 
