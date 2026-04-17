@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Gift;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Attachment;
@@ -14,8 +15,7 @@ class GiftCreated extends Mailable
     use Queueable, SerializesModels;
 
     public function __construct(
-        protected string $giftName,
-        protected float $giftPrice,
+        protected Gift $gift,
     ) {}
 
     public function envelope(): Envelope
@@ -30,8 +30,8 @@ class GiftCreated extends Mailable
         return new Content(
             view: 'mail.gifts.created',
             with: [
-                'giftName'  => $this->giftName,
-                'giftPrice' => $this->giftPrice,
+                'giftName'  => $this->gift->name,
+                'giftPrice' => $this->gift->price,
             ],
         );
     }
