@@ -31,7 +31,7 @@ class GiftController extends Controller
 
         $gift = Gift::create($request->only(['name', 'url', 'details', 'price']));
 
-        Mail::to('test@example.com')->send(new GiftCreated($gift->name,(float) $gift->price));
+        Mail::to('fanarkt08@gmail.com')->send(new GiftCreated($gift->name,(float) $gift->price));
 
         return redirect()->route('gifts.index');
     }
